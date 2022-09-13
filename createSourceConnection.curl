@@ -1,0 +1,20 @@
+curl --location --request POST 'https://platform.adobe.io/data/foundation/flowservice/sourceConnections' \
+--header 'Authorization: Bearer {{ACCESS_TOKEN}}' \
+--header 'x-api-key: {{API_KEY}}' \
+--header 'x-gw-ims-org-id: {{IMS_ORG}}' \
+--header 'x-sandbox-name: {{SANDBOX_NAME}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "XYZ - AEP TO ACS S3 - source profile service connection",
+    "description": "XYZ - AEP TO ACS S3 - source profile service connection for data export",
+    "connectionSpec": {
+        "id": "8a9c3494-9708-43d7-ae3f-cda01e5030e1",
+        "version": "1.0"
+    },
+    "baseConnectionId": "{{AEP_AUTH_BASE_CONNECTION_ID}}",
+    "data": {
+        "format": "CSV",
+        "schema": null
+    },
+    "params": {}
+}'
