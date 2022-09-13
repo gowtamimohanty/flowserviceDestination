@@ -1,0 +1,6 @@
+curl --location --request GET 'https://platform.adobe.io/data/foundation/flowservice/connectionSpecs' \
+--header 'accept: application/json' \
+--header 'Authorization: Bearer {{ACCESS_TOKEN}}' \
+--header 'x-api-key: {{API_KEY}}' \
+--header 'x-gw-ims-org-id: {{IMS_ORG}}' \
+--header 'x-sandbox-name: {{SANDBOX_NAME}}'
