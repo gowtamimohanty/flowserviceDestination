@@ -1,0 +1,7 @@
+curl --location --request GET 'https://platform.adobe.io/data/foundation/flowservice/flows/{{AEP_TO_S3ACS_ACTIVATEID}}' \
+--header 'Authorization: Bearer {{ACCESS_TOKEN}}' \
+--header 'x-api-key: {{API_KEY}}' \
+--header 'x-gw-ims-org-id: {{IMS_ORG}}' \
+--header 'x-sandbox-name: {{SANDBOX_NAME}}'
+--header 'Content-Type: application/json' \
+--header 'If-Match: {{AEP_TO_S3ACS_ACTIVATEETAG}}' 
