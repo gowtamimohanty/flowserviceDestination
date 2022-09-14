@@ -1,0 +1,117 @@
+curl --location --request PATCH 'https://platform.adobe.io/data/foundation/flowservice/flows/4afaa5c6-c368-4e56-bc30-1cf165cbb594' \
+--header 'Authorization: Bearer {{ACCESS_TOKEN}}' \
+--header 'x-api-key: {{API_KEY}}' \
+--header 'x-gw-ims-org-id: {{IMS_ORG}}' \
+--header 'x-sandbox-name: {{SANDBOX_NAME}}'
+--header 'Content-Type: application/json' \
+--header 'If-Match: "070017eb-0000-1a00-0000-6320b9500000"' \
+--data-raw '[
+    {
+        "op": "add",
+        "path": "/transformations/0/params/segmentSelectors/selectors/-",
+        "value": {
+            "type": "PLATFORM_SEGMENT",
+            "value": {
+                "id": "5effae29-2e46-46e9-b7ec-304b84e08d6f",
+                "name": "aep:xyz:s:demo:gender:male",
+                "description": "Male",
+                "filenameTemplate": "%DESTINATION_NAME%_GM_%SEGMENT_ID%_{{YYYYMMDD_HHmmss}}",
+                "exportMode": "FIRST_FULL_THEN_INCREMENTAL",
+                "schedule": {
+                    "frequency": "EVERY_3_HOURS",
+                    "triggerType": "SCHEDULED",
+                    "startDate": "2022-08-04",
+                    "endDate": "2022-08-10",
+                    "startTime": "11:00"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/transformations/0/params/profileSelectors/selectors/-",
+        "value": {
+            "type": "JSON_PATH",
+            "value": {
+                "path": "Email",
+                "operator": "EXISTS",
+                "identity": {
+                    "namespace": "Email"
+                },
+                "mapping": {
+                    "sourceType": "text/x.schema-path",
+                    "source": "Email",
+                    "destination": "Email",
+                    "identity": false,
+                    "primaryIdentity": false,
+                    "functionVersion": 0,
+                    "sourceAttribute": "Email",
+                    "destinationXdmPath": "Email"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/transformations/0/params/profileSelectors/selectors/-",
+        "value": {
+            "type": "JSON_PATH",
+            "value": {
+                "path": "person.name.firstName",
+                "operator": "EXISTS",
+                "mapping": {
+                    "sourceType": "text/x.schema-path",
+                    "source": "person.name.firstName",
+                    "destination": "person.name.firstName",
+                    "identity": false,
+                    "primaryIdentity": false,
+                    "functionVersion": 0,
+                    "sourceAttribute": "person.name.firstName",
+                    "destinationXdmPath": "person.name.firstName"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/transformations/0/params/profileSelectors/selectors/-",
+        "value": {
+            "type": "JSON_PATH",
+            "value": {
+                "path": "person.name.lastName",
+                "operator": "EXISTS",
+                "mapping": {
+                    "sourceType": "text/x.schema-path",
+                    "source": "person.name.lastName",
+                    "destination": "person.name.lastName",
+                    "identity": false,
+                    "primaryIdentity": false,
+                    "functionVersion": 0,
+                    "sourceAttribute": "person.name.lastName",
+                    "destinationXdmPath": "person.name.lastName"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/transformations/0/params/profileSelectors/selectors/-",
+        "value": {
+            "type": "JSON_PATH",
+            "value": {
+                "path": "personalEmail.address",
+                "operator": "EXISTS",
+                "mapping": {
+                    "sourceType": "text/x.schema-path",
+                    "source": "personalEmail.address",
+                    "destination": "personalEmail.address",
+                    "identity": false,
+                    "primaryIdentity": false,
+                    "functionVersion": 0,
+                    "sourceAttribute": "personalEmail.address",
+                    "destinationXdmPath": "personalEmail.address"
+                }
+            }
+        }
+    }
+]'
