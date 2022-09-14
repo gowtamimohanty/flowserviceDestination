@@ -1,10 +1,10 @@
-curl --location --request PATCH 'https://platform.adobe.io/data/foundation/flowservice/flows/4afaa5c6-c368-4e56-bc30-1cf165cbb594' \
+curl --location --request PATCH 'https://platform.adobe.io/data/foundation/flowservice/flows/{{AEP_TO_S3ACS_ACTIVATEID}}' \
 --header 'Authorization: Bearer {{ACCESS_TOKEN}}' \
 --header 'x-api-key: {{API_KEY}}' \
 --header 'x-gw-ims-org-id: {{IMS_ORG}}' \
 --header 'x-sandbox-name: {{SANDBOX_NAME}}'
 --header 'Content-Type: application/json' \
---header 'If-Match: "070017eb-0000-1a00-0000-6320b9500000"' \
+--header 'If-Match: {{AEP_TO_S3ACS_ACTIVATEETAG}}' \
 --data-raw '[
     {
         "op": "add",
